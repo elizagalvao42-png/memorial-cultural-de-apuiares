@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memorial Cultural de Apuiarés</title>
+  <style>
+  
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdfdfd;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #f5d700, #2e8b57);
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #2e8b57;
+      padding: 0.5rem;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ============================
+       NOVA FAIXA ABAIXO DE TUDO VERDE
+       ============================ */
+    .faixa-patrimonios2 {
+      background-color: #f0f9e9;
+      padding: 1rem 0;
+      border-bottom: 4px solid #2e8b57;
+      border-top: 4px solid #2e8b57;
+      margin-bottom: 1rem;
+    }
+
+    .faixa-scroll2 {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 0 1rem;
+      scroll-behavior: smooth;
+    }
+
+    .faixa-scroll2 img {
+      width: 230px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .faixa-scroll2 img:hover {
+      transform: scale(1.05);
+    }
+
+    .faixa-scroll2::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .faixa-scroll2::-webkit-scrollbar-thumb {
+      background: #2e8b57;
+      border-radius: 10px;
+    }
+
+    /* Faixa antiga */
+    .faixa-patrimonios {
+      background-color: #eaf7e9; 
+      padding: 1rem 0;
+      border-top: 4px solid #2e8b57;
+      border-bottom: 4px solid #2e8b57;
+    }
+
+    .faixa-scroll {
+      display: flex;
+      gap: 1rem;
+      overflow-x: auto;
+      padding: 0 1rem;
+      scroll-behavior: smooth;
+    }
+
+    .faixa-scroll img {
+      width: 220px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px;
+      flex-shrink: 0;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .faixa-scroll img:hover {
+      transform: scale(1.05);
+    }
+
+    .faixa-scroll::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .faixa-scroll::-webkit-scrollbar-thumb {
+      background: #2e8b57;
+      border-radius: 10px;
+    }
+
+    .galeria {
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 1rem;
+      background-color: #fff7cc;
+    }
+
+    .galeria img {
+      width: 250px;
+      height: 160px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+
+    .conteudo {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff7cc;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    form button {
+      background-color: #2e8b57;
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #ffffffff;
+    }
+
+    .artista-card, .patrimonio-card {
+      display: inline-block;
+      width: 260px;
+      margin: 1rem;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      vertical-align: top;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .artista-card img, .patrimonio-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .artista-card h3, .patrimonio-card h3 {
+      color: #2e8b57;
+      margin: 0.5rem 0;
+    }
+
+    .artista-card p {
+      padding: 0 1rem 1rem;
+      font-size: 0.95rem;
+    }
+
+    .artista-card:hover, .patrimonio-card:hover {
+      transform: scale(1.05);
+    }
+
+    .cards-patrimonios {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    footer {
+      background-color: #2e8b57;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Memorial Cultural de Apuiarés</h1>
+    <p>Preservando a história e celebrando os patrimônios culturais da nossa cidade</p>
+  </header>
+
+  <nav>
+    <a href="#História da">Informações</a>
+    <a href="#materiais">Patrimônios Materiais</a>
+    <a href="#imateriais">Patrimônios Imateriais</a>
+    <a href="#materiais">Cultura Viva</a>
+    <a href="#Inscrições">Inscrições</a>
+  </nav>
+
+
+  <!-- Galeria superior opcional -->
+  <!-- Galeria superior opcional -->
+<section class="galeria" id="galeria">
+
+  <div class="item-galeria" onclick="abrirPagina('igreja.html')">
+    <img src="c:\Users\eliza\Downloads\Igreja_de_São_Sebastião_em_Apuiarés_CE (1).jpg"
+         alt="Igreja Matriz"
+         style="width:150px; height:150px; border-radius:50%; object-fit:cover;">
+    <p class="legenda">Igreja Matriz</p>
+    <script>
+function abrirPagina(pagina) {
+  window.location.href = pagina;
+}
+</script>
+  </div>
+
+  <div class="item-galeria" onclick="abrirPagina('festa.html')">
+    <img src="c:\Users\eliza\Downloads\OIP.webp"
+         alt="Festa de São Sebastião"
+         style="width:150px; height:150px; border-radius:50%; object-fit:cover;">
+    <p class="legenda">Festa de São Sebastião</p>
+    <script>
+function abrirPagina(pagina) {
+  window.location.href = pagina;
+}
+</script>
+  </div>
+
+  <div class="item-galeria" onclick="abrirPagina('museu.html')">
+    <img src="c:\Users\eliza\Downloads\OIP (3).webp"
+         alt="Museu Mestre Egídio"
+         style="width:150px; height:150px; border-radius:50%; object-fit:cover;">
+    <p class="legenda">Museu Mestre Egídio</p>
+  </div>
+
+  <div class="item-galeria" onclick="abrirPagina('pau.html')">
+    <img src="c:\Users\eliza\OneDrive\Área de Trabalho\Imagemdopau.jpg"
+         alt="Pau do Padre"
+         style="width:150px; height:150px; border-radius:50%; object-fit:cover;">
+    <p class="legenda">Pau do Padre</p>
+  </div>
+
+  <div class="item-galeria" onclick="abrirPagina('monumento.html')">
+    <img src="c:\Users\eliza\Downloads\143676032_1034913837022379_4937095843675094570_n.jpg"
+         alt="Monumento São Sebastião"
+         style="width:150px; height:150px; border-radius:50%; object-fit:cover;">
+    <p class="legenda">Monumento São Sebastião</p>
+  </div>
+    <script>
+function abrirPagina(pagina) {
+  window.location.href = pagina;
+}
+</script>
+  </div>
+
+  <div class="item-galeria" onclick="abrirPagina('rio.html')">
+    <img src="c:\Users\eliza\OneDrive\Área de Trabalho\riocuru.jpg"
+         alt="Rio Curu"
+         style="width:150px; height:150px; border-radius:50%; object-fit:cover;">
+    <p class="legenda">Rio Curu</p>
+  </div>
+
+  <div class="item-galeria" onclick="abrirPagina('biblioteca.html')">
+    <img src="c:\Users\eliza\OneDrive\Área de Trabalho\bibliioteca.jpg"
+         alt="Biblioteca Municipal"
+         style="width:150px; height:150px; border-radius:50%; object-fit:cover;">
+    <p class="legenda">Biblioteca Municipal</p>
+  </div>
+
+<div class="item-galeria" onclick="abrirPagina('apuiares-junino.html')">
+    <img src="c:\Users\eliza\OneDrive\Área de Trabalho\Imagem do WhatsApp de 2025-11-27 à(s) 18.36.48_a610e373.jpg"
+         alt="Apuiarés Junino"
+         style="width:150px; height:150px; border-radius:50%; object-fit:cover;">
+    <p class="legenda">apuiarés Junino</p>
+  </div>
+
+  <div class="item-galeria" onclick="abrirPagina('biblioteca.html')">
+    <img src="c:\Users\eliza\OneDrive\Área de Trabalho\bibliioteca.jpg"
+         alt="Biblioteca Municipal"
+         style="width:150px; height:150px; border-radius:50%; object-fit:cover;">
+    <p class="legenda">Festival do Capote</p>
+  </div>
+
+  <div class="item-galeria" onclick="abrirPagina('biblioteca.html')">
+    <img src="c:\Users\eliza\OneDrive\Área de Trabalho\bibliioteca.jpg"
+         alt="Biblioteca Municipal"
+         style="width:150px; height:150px; border-radius:50%; object-fit:cover;">
+    <p class="legenda">Banda Municipal</p>
+  </div>
+
+
+</section>
+
+      
+<div style="width: 100%; background-color: #147e40; padding: 14px 0; text-align: center; color: white; font-size: 20px; font-weight: bold;">
+  "Cuidar do patrimônio é proteger nossas raízes,"
+</div>
+<br>
+
+<!-- FAIXA DE FOTOS EM LOOP -->
+<div style="width:100%; overflow:hidden; background:#ffffff; padding:0;">
+
+  <div style="
+    display:flex;
+    width:max-content;
+    animation:deslizar 20s linear infinite;
+  ">
+
+    <img src="c:\Users\eliza\OneDrive\Área de Trabalho\IMG_1320.JPEG.jpg" style="height:120px; object-fit:cover; margin:0; padding:0; display:block;">
+    <img src="c:\Users\eliza\OneDrive\Área de Trabalho\IMG_1320.JPEG.jpg" style="height:120px; object-fit:cover; margin:0; padding:0; display:block;">
+
+    <!-- CÓPIAS PARA O LOOP -->
+    <img src="c:\Users\eliza\OneDrive\Área de Trabalho\IMG_1320.JPEG.jpg" style="height:120px; object-fit:cover; margin:0; padding:0; display:block;">
+    <img src="c:\Users\eliza\OneDrive\Área de Trabalho\IMG_1320.JPEG.jpg" style="height:120px; object-fit:cover; margin:0; padding:0; display:block;">
+  </div>
+  <style>
+    @keyframes deslizar {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+  </style> <br>
+  <br>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menu — Apuiarés</title>
+
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  .container {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .btn {
+    background: linear-gradient(90deg, #0a9200, #f1c400);
+    padding: 18px 35px;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
+  }
+
+  .btn:hover {
+    transform: scale(1.06);
+    box-shadow: 0px 6px 14px rgba(0,0,0,0.18);
+  }
+
+  h1 {
+    margin-top: 40px;
+    color: #ffffff;
+    font-size: 2rem;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="container">
+  <a href="historia.html" class="btn">História do Município</a>
+  <a href="hino.html" class="btn">Hino do Município</a>
+</div>
+
+</body>
+</html>
+<br>
+<br>
+<br>
+
+
+
+
+  <!-- Patrimônios Materiais -->
+    <div style="width: 100%; background-color: #147e40; padding: 14px 0; text-align: center; color: white; font-size: 20px; font-weight: bold;">
+  Patrimônios Materiais
+</div><br>
+  
+   <div style="width:100%; background-color:#f2f2f2; padding:12px 0; text-align:center; font-size:20px; font-weight:bold; color:#333;">
+  Objetos e lugares que guardam a história do nosso município
+</div>
+
+<div class="cards-patrimonios">
+
+  <div class="patrimonio-card" onclick="abrirPagina('igreja.html')">
+      <img src="c:\Users\eliza\Downloads\Igreja_de_São_Sebastião_em_Apuiarés_CE (1).jpg" alt="Igreja Matriz">
+      <h3>Igreja Matriz de São Sebastião</h3>
+  </div>
+
+  <div class="patrimonio-card" onclick="abrirPagina('museu.html')">
+      <img src="c:\Users\eliza\Downloads\OIP (3).webp" alt="Museu Mestre Egídio">
+      <h3>Museu Mestre Egídio dos Santos</h3>
+  </div>
+
+  <div class="patrimonio-card" onclick="abrirPagina('pau.html')">
+      <img src="c:\Users\eliza\OneDrive\Área de Trabalho\Imagemdopau.jpg" alt="Pau do Padre">
+      <h3>Pau do Padre</h3>
+  </div>
+
+  <div class="patrimonio-card" onclick="abrirPagina('monumento.html')">
+      <img src="c:\Users\eliza\Downloads\143676032_1034913837022379_4937095843675094570_n.jpg" alt="Monumento São Sebastião">
+      <h3>Monumento São Sebastião</h3>
+  </div>
+
+  <div class="patrimonio-card" onclick="abrirPagina('rio.html')">
+      <img src="c:\Users\eliza\OneDrive\Área de Trabalho\riocuru.jpg" alt="Rio Curu">
+      <h3>Rio Curu</h3>
+  </div>
+
+  <div class="patrimonio-card" onclick="abrirPagina('festa.html')">
+      <img src="c:\Users\eliza\OneDrive\Área de Trabalho\bibliioteca.jpg" alt="Biblioteca Municipal">
+      <h3>Biblioteca Municipal</h3>
+  </div>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+  <!-- Patrimônios Imateriais -->
+    <div style="width: 100%; background-color: #147e40; padding: 14px 0; text-align: center; color: white; font-size: 20px; font-weight: bold;">
+  Patrimônios Imateriais
+</div><br>
+  
+   <div style="width:100%; background-color:#f2f2f2; padding:12px 0; text-align:center; font-size:20px; font-weight:bold; color:#333;">
+ Os saberes, celebrações e expressões que mantêm viva a cultura popular de Apuiarés.
+</div>
+
+
+<div class="cards-patrimonios">
+
+  <div class="patrimonio-card" onclick="abrirPagina('apuiares-junino.html')">
+      <img src="c:\Users\eliza\OneDrive\Área de Trabalho\Imagem do WhatsApp de 2025-11-27 à(s) 18.36.48_a610e373.jpg" alt="Igreja Matriz">
+      <h3>Apuiarés Junino</h3>
+  </div>
+
+  <div class="patrimonio-card" onclick="abrirPagina('banda.html')">
+      <img src="c:\Users\eliza\OneDrive\Área de Trabalho\Imagem do WhatsApp de 2025-11-27 à(s) 18.58.32_413fd33e.jpg" alt="Pau do Padre">
+      <h3>Banda Municipal</h3>
+  </div>
+
+  <div class="patrimonio-card" onclick="abrirPagina('festa.html')">
+      <img src="c:\Users\eliza\Downloads\143676032_1034913837022379_4937095843675094570_n.jpg" alt="Monumento São Sebastião">
+      <h3>Festa de São Sebastião</h3>
+  </div>
+
+  <div class="patrimonio-card" onclick="abrirPagina('olimpiadas.html')">
+      <img src="c:\Users\eliza\OneDrive\Área de Trabalho\Imagem do WhatsApp de 2025-11-27 à(s) 19.03.53_62ae954c.jpg" alt="Rio Curu">
+      <h3>Olimpíadas de apuiarés</h3>
+  </div>
+
+  <div class="patrimonio-card" onclick="abrirPagina('festival.html')">
+      <img src="c:\Users\eliza\OneDrive\Área de Trabalho\Imagem do WhatsApp de 2025-11-27 à(s) 19.11.52_facf14b5.jpg" alt="Biblioteca Municipal">
+      <h3>Festival do Capote</h3>
+  </div>
+
+  
+   <div class="patrimonio-card" onclick="abrirPagina('reisado.html')">
+      <img src="c:\Users\eliza\Downloads\image.jpeg" alt="Igreja Matriz">
+      <h3>Reisado do Agostinho</h3>
+  </div>
+
+</div>
+<br>
+<br>
+<br>
+<br>
+
+  <!-- Cultura Viva -->
+    <div style="width: 100%; background-color: #147e40; padding: 14px 0; text-align: center; color: white; font-size: 20px; font-weight: bold;">
+ Cultura Viva
+</div><br>
+  
+   <div style="width:100%; background-color:#f2f2f2; padding:12px 0; text-align:center; font-size:20px; font-weight:bold; color:#333;">
+Os saberes, as prosas e os artistas que mantêm viva a cultura popular de Apuiarés.
+</div>
+
+
+   <div class="patrimonio-card" onclick="abrirPagina('poeta.html')">
+      <img src="c:\Users\eliza\Downloads\ZE RAIMUNDO.jpg" alt="Igreja Matriz">
+      <h3>Poeta Zé Raimundo</h3>
+  </div>
+
+  <div class="patrimonio-card" onclick="abrirPagina('mestre.html')">
+      <img src="c:\Users\eliza\Downloads\OIP (3).webp" alt="Museu Mestre Egídio">
+      <h3>Mestre Egídio dos Santos</h3>
+  </div>
+
+  <div class="patrimonio-card" onclick="abrirPagina('matilde.html')">
+      <img src="c:\Users\eliza\Downloads\pngtree-anonymous-user-unidentified-contact-avatar-png-image_4816655.png" alt="Pau do Padre">
+      <h3>Matilde Barbosa Gois</h3>
+  </div>
+
+  <div class="patrimonio-card" onclick="abrirPagina('mãe.html')">
+      <img src="c:\Users\eliza\Downloads\png-transparent-computer-icons-facebook-social-media-logo-silhouette-portrait-logo-head-thumb-signal.png" alt="Monumento São Sebastião">
+      <h3>Mãe Sé</h3>
+  </div>
+  
+  </section><br>
+  <br>
+  <br>
+  <br>
+
+  <!-- Formulário de cadastro -->
+   <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <div style="width: 100%; background-color: #147e40; padding: 14px 0; text-align: center; color: white; font-size: 20px; font-weight: bold;">
+ Cadastro de Patrimônios e Cultura
+</div><br>
+  <style>
+
+    
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ffffffff;
+    }
+
+    .form-container {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      font-weight: bold;
+      color: #134801;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #ffffffff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #ffffffff;
+    }
+
+    .lista-perfis {
+      margin-top: 40px;
+    }
+
+    .perfil-btn {
+      display: inline-block;
+      background-color: #ffcc00;
+      color: #000;
+      padding: 12px 18px;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .perfil-btn:hover {
+      background-color: #e6b800;
+    }
+  </style>
+</head>
+
+
+  <div class="form-container">
+    <label>Nome do inscrito:</label>
+    <input type="text" id="nome" placeholder="Digite o nome" required />
+
+    <label>Categoria:</label>
+    <select id="categoria">
+      <option value="material">Patrimônio Material</option>
+      <option value="imaterial">Patrimônio Imaterial</option>
+      <option value="artista">Cultura Viva</option>
+    </select>
+
+    <label>Descrição / História:</label>
+    <textarea id="descricao" rows="5" placeholder="Descreva o patrimônio ou o trabalho artístico"></textarea>
+
+    <label>Adicionar fotos:</label>
+<input type="file" id="fotos" multiple accept="image/*">
+   
+
+
+<div class="galeria-preview" id="preview"></div>
+
+
+    <button onclick="cadastrar()">Cadastrar</button>
+  </div>
+  <br>
+  
+
+  <div class="lista-perfis" id="listaPerfis">
+    <br>
+    <h2>Perfis cadastrados</h2>
+  </div>
+
+  <script>
+    function slugify(text) {
+      return text.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+    }
+
+    function cadastrar() {
+      const nome = document.getElementById('nome').value;
+      const categoria = document.getElementById('categoria').value;
+      const descricao = document.getElementById('descricao').value;
+
+      if (!nome.trim()) {
+        alert('Digite um nome válido.');
+        return;
+      }
+
+      const slug = slugify(nome);
+      const paginaNome = slug + '.html';
+
+      gerarPaginaIndividual(paginaNome, nome, categoria, descricao);
+      adicionarBotaoLista(nome, paginaNome);
+
+      document.getElementById('nome').value = '';
+      document.getElementById('descricao').value = '';
+    }
+
+    function gerarPaginaIndividual(arquivo, nome, categoria, descricao) {
+      const conteudo = `<!DOCTYPE html>
+<html lang='pt-BR'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>${nome}</title>
+<style>
+body { font-family: Arial; background: #fdfdfd; padding: 20px; }
+h1 { color: #1a6600; }
+p { font-size: 18px; }
+.botao-voltar { background: #ffcc00; padding: 10px 15px; border-radius: 8px; text-decoration: none; font-weight: bold; }
+</style>
+</head>
+<body>
+<h1>${nome}</h1>
+<h2>Categoria: ${categoria}</h2>
+<p>${descricao}</p>
+<a class='botao-voltar' href='index.html'>Voltar</a>
+</body>
+</html>`;
+
+      const blob = new Blob([conteudo], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = arquivo;
+      link.click();
+    }
+
+    function adicionarBotaoLista(nome, link) {
+      const lista = document.getElementById('listaPerfis');
+      const botao = document.createElement('a');
+      botao.className = 'perfil-btn';
+      botao.textContent = nome;
+      botao.href = link;
+
+      lista.appendChild(botao);
+    }
+  </script>
+</body>
+</html
