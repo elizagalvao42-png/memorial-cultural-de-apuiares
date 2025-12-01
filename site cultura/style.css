@@ -1,0 +1,179 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(90deg, #f5d700, #2e8b57);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+/* NAV */
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #2e8b57;
+  padding: 0.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* FAIXA DE PATRIMÔNIOS */
+.faixa-patrimonios {
+  background-color: #eaf7e9;
+  padding: 1rem 0;
+  border-top: 4px solid #2e8b57;
+  border-bottom: 4px solid #2e8b57;
+}
+
+.faixa-scroll {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0 1rem;
+  scroll-behavior: smooth;
+}
+
+.faixa-scroll img {
+  width: 220px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.faixa-scroll img:hover {
+  transform: scale(1.05);
+}
+
+/* Scrollbar */
+.faixa-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.faixa-scroll::-webkit-scrollbar-thumb {
+  background: #2e8b57;
+  border-radius: 10px;
+}
+
+/* GALERIA SUPERIOR */
+.galeria {
+  display: flex;
+  overflow-x: auto;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #fff7cc;
+}
+
+.galeria img {
+  width: 250px;
+  height: 160px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.galeria img:hover {
+  transform: scale(1.05);
+}
+
+/* CONTEÚDO */
+.conteudo {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* FORMULÁRIO */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff7cc;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+form input, 
+form textarea, 
+form select {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: #2e8b57;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+form but
+
+.cards-patrimonios {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* centraliza os cards */
+  padding: 20px;
+}
+
+.patrimonio-card {
+  width: 250px;  /* tamanho do card */
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.patrimonio-card:hover {
+  transform: scale(1.05);
+}
+
+.patrimonio-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover; /* evita distorção */
+  display: block;
+}
+
+.patrimonio-card h3 {
+  text-align: center;
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+faixa-frase {
+  background-color: #097d3f; /* cor da faixa */
+  color: white;              /* cor do texto */
+  text-align: center;        /* centraliza o texto */
+  padding: 15px 0;           /* altura da faixa */
+  font-size: 22px;           /* tamanho da frase */
+  font-weight: bold;         /* deixa forte */
+  letter-spacing: 1px;       /* espaçamento bonito */
+  width: 100%;               /* fa faixas ocupa a largura toda */
+}
